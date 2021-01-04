@@ -1,0 +1,44 @@
+description = "MMM"
+//group 'com.a'
+//version '1.0-SNAPSHOT'
+
+
+//apply plugin: 'java' // 项目基础变成语言支持为java
+//apply plugin: 'war'// 可将项目打包成war形式运行
+//apply plugin: 'idea' // 支持IntelliJ IDEA直接导入和编辑
+
+//targetCompatibility = 1.8
+
+//repositories {
+//    mavenCentral()
+//}
+
+dependencies {
+        providedCompile  "javax:javaee-api:6.0"
+        compile fileTree(dir:'lib',includes:['*jar'])
+//    testCompile group: 'junit', name: 'junit', version: '4.11'
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile project(':spring')
+        compile(project(":spring-core"))
+        optional(project(":spring-aop"))
+        optional(project(":spring-beans"))
+        optional(project(":spring-context"))
+        optional(project(":spring-jdbc"))
+        optional(project(":spring-orm"))
+        optional(project(":spring-tx"))
+        optional(project(":spring-web"))
+        optional(project(":spring-webflux"))
+        optional(project(":spring-webmvc"))
+
+}
+
+
+
+//dependencies {
+//        compile(project(":spring-core"))
+//        compile(project(":spring-context"))
+//        compile(project(":spring-beans"))
+//        compile(project(":spring-web"))
+//        compile(project(":spring-webmvc"))
+//
+//}

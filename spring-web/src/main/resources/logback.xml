@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <property name="LOG_HOME" value="c:/log" />
+    <property name="APP_NAME" value="MVCTest" />
+<!--    <contextName>${APP_NAME}</contextName>-->
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <Encoding>UTF-8</Encoding>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>>>>%msg              %logger{15}%n</pattern>
+        </layout>
+    </appender>
+    <!--%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n-->
+<!--    在 logback.xml 中看到 level=“INFO”，这是在配置日志级别。有给特定包指定日志级别，
+特定包以外的都是由 root 节点指定日志级别。日志级别由低到高： trace、debug、info、warn、error。-->
+    <logger name="org.springframework" level="DEBUG" />
+    <logger name="com.a.controller" level="DEBUG" />
+    <!-- 为所有开头为dao的类打印sql语句 -->
+    <!-- <logger name="dao" level="DEBUG">
+        <appender-ref ref="INFO-APPENDER" />
+    </logger> -->
+    <root level="DEBUG">
+        <appender-ref ref="FILE" />
+    </root>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
